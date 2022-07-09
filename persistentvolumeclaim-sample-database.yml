@@ -1,0 +1,89 @@
+﻿kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  annotations:
+    openshift.io/generated-by: OpenShiftNewApp
+    pv.kubernetes.io/bind-completed: 'yes'
+    pv.kubernetes.io/bound-by-controller: 'yes'
+    volume.beta.kubernetes.io/storage-provisioner: kubernetes.io/aws-ebs
+    volume.kubernetes.io/selected-node: ip-10-0-194-164.us-east-2.compute.internal
+  selfLink: /api/v1/namespaces/rm343576-projeto3/persistentvolumeclaims/sample-database
+  resourceVersion: '93373189'
+  name: sample-database
+  uid: 0711294e-f1b3-449f-9e7b-5c2422d62849
+  creationTimestamp: '2022-07-09T13:12:53Z'
+  managedFields:
+    - manager: oc
+      operation: Update
+      apiVersion: v1
+      time: '2022-07-09T13:12:53Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:annotations':
+            .: {}
+            'f:openshift.io/generated-by': {}
+          'f:labels':
+            .: {}
+            'f:app': {}
+            'f:app.kubernetes.io/component': {}
+            'f:app.kubernetes.io/instance': {}
+            'f:template': {}
+        'f:spec':
+          'f:accessModes': {}
+          'f:resources':
+            'f:requests':
+              .: {}
+              'f:storage': {}
+          'f:volumeMode': {}
+    - manager: kube-scheduler
+      operation: Update
+      apiVersion: v1
+      time: '2022-07-09T13:12:57Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:annotations':
+            'f:volume.kubernetes.io/selected-node': {}
+    - manager: kube-controller-manager
+      operation: Update
+      apiVersion: v1
+      time: '2022-07-09T13:13:03Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:annotations':
+            'f:pv.kubernetes.io/bind-completed': {}
+            'f:pv.kubernetes.io/bound-by-controller': {}
+            'f:volume.beta.kubernetes.io/storage-provisioner': {}
+        'f:spec':
+          'f:volumeName': {}
+        'f:status':
+          'f:accessModes': {}
+          'f:capacity':
+            .: {}
+            'f:storage': {}
+          'f:phase': {}
+  namespace: rm343576-projeto3
+  finalizers:
+    - kubernetes.io/pvc-protection
+  labels:
+    app: sample-database-rm343576
+    app.kubernetes.io/component: sample-database-rm343576
+    app.kubernetes.io/instance: sample-database-rm343576
+    template: postgresql-persistent-template
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Gi
+  volumeName: pvc-0711294e-f1b3-449f-9e7b-5c2422d62849
+  storageClassName: gp2
+  volumeMode: Filesystem
+status:
+  phase: Bound
+  accessModes:
+    - ReadWriteOnce
+  capacity:
+    storage: 1Gi
